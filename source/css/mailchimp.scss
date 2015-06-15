@@ -1,0 +1,53 @@
+@import "theme";
+
+.mailchimp form {
+  display: inline-block;
+}
+
+.mailchimp {
+  clear: both;
+  margin: 10px;
+}
+
+.mailchimp .form-group {
+  margin: 0px;
+}
+
+.mailchimp input {
+  margin-bottom: 10px
+}
+
+*::-webkit-input-placeholder {
+    color: eeeeee !important;
+}
+
+*:-moz-placeholder {
+    color: eeeeee !important;
+}
+
+*::-moz-placeholder {
+    color: eeeeee !important;
+}
+
+*:-ms-input-placeholder {
+    color: eeeeee !important;
+}
+
+.mailchimp .button {
+  vertical-align: top;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.mailchimp .button-small {
+  font-size: 1.0em !important;
+  padding: 7px 30px !important;
+  margin-top: 0px !important;
+  margin-bottom: 10px;
+}
+
+.mailchimp .button-small:active {
+  margin-top: 5px !important;
+  border-bottom: none;
+}

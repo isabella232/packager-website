@@ -1,0 +1,54 @@
+@import "theme";
+
+.tito-wrapper {
+  background-color: $theme-bg;
+  border: none;
+  max-width: 100% !important;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+};
+
+.tito-ticket-list {
+};
+
+.tito-ticket-name-wrapper,
+.tito-ticket-price-quantity-wrapper {
+  border-bottom: none;
+};
+
+.tito-ticket-name {
+  color: $theme-primary;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: auto;
+};
+
+.tito-ticket-description {
+  color: $theme-text;
+  font-size: 14px;
+  line-height: auto;
+};
+
+.tito-ticket-price span {
+  color: $theme-orange;
+};
+
+.tito-ticket-quantity span {
+  color: $theme-text;
+  font-size: 14px;
+  line-height: auto;
+};
+
+.tito-ticket-quantity input {
+  color: $theme-blue;
+};
+
+.tito-badge-link {
+  display: none;
+};
+
+.tito-notch {
+  border: none;
+}

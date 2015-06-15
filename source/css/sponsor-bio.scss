@@ -1,0 +1,37 @@
+@import "theme";
+
+.vertical-align {
+  vertical-align: middle;
+  margin-top: auto;
+  margin-bottom: auto;
+};
+
+.sponsor {
+  margin: 15px 0px;
+};
+
+.sponsor .sponsor-logo {
+  padding: 15px;
+  height: 260px;
+  margin-bottom: 20px;
+  overflow: hidden !important;
+};
+
+.sponsor .sponsor-logo-wrapper {
+  @extend .vertical-align;
+  height: 100%;
+}
+
+.sponsor img {
+  @extend .vertical-align;
+  margin-right: auto;
+  height: auto;
+  width: auto;
+  max-height: 100%;
+  max-width: 100%;
+  border: none;
+};
+
+.sponsor h1 {
+  color: $theme-secondary;
+};

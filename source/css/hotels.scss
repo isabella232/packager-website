@@ -1,0 +1,17 @@
+@import "theme";
+
+.hotel {
+  margin: 10px 0px;
+};
+
+.hotel img {
+  margin-top: 20px;
+};
+
+.hotel .hotel-name * {
+  color: $theme-primary;
+};
+
+.hotel .hotel-address {
+  color: $theme-secondary;
+};
