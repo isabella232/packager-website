@@ -1,6 +1,9 @@
 ---
 title: "Takeout"
-description: "Taking the pain out of package management, one package at a time."
+description: "Takeout is a single-purpose continuous integration (CI) service
+  designed to build & package (.deb, .rpm, etc) <strong>your</strong>
+  applications. Stop writing installation scripts & start releasing your
+  software in ready-to-install formats."
 copyright: "2015"
 footnotes:
   author: "Made with <i class='fa fa-heart'></i> by <a href=http://\
@@ -16,7 +19,7 @@ favicon:
 opengraph:
   type: "website"
   site_name: "Takeout"
-  title: "Making package management suck less, one package at a time."
+  title: "Taking the pain out of package management, one package at a time."
   url: "http://automacon.io"
 
 google-analytics: "UA-39138312-9"

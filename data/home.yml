@@ -7,7 +7,7 @@
         heading: "Make installable system packages, not
           <text-muted>.</text-muted>war <text-muted>(files)</text-muted>"
         desc:
-          - subheading: "Stop writing custom installation scripts."
+          - subheading: "Stop writing installation scripts."
 
           - "If you're implementing solutions for installing software because
             making installable packages is too hard, stop. If you know how to
@@ -24,7 +24,7 @@
           {
             "target": {
               "platform": 'ubuntu',
-              "version": '12.04',
+              "version": '14.04',
               "package": 'deb',
               "arch": 'amd64'
             },
@@ -122,30 +122,29 @@
       - id: "configuration"
         layout: "code-snippet"
         width: "5"
-        lang: "ruby"
+        lang: "json"
         snippet: |
-          # -*- mode: ruby -*-
-          # -*- encoding: utf-8 -*-
-          Takeout.build do
-            target do
-              platform 'ubuntu'
-              version '14.04'
-            end
-            dependencies do
-              build ['libpq-dev']
-              runtime ['libpq5']
-            end
-            build do
-              name 'myapp'
-              template :rails
-              install_prefix '/var/www/myapp'
-              commands do
-                after.build [
-                  'rake middleman'
+
+          {
+            "target": {
+              "platform": 'ubuntu',
+              "version": '14.04'
+            },
+            "dependencies": {
+              "build": ['libpq-dev'],
+              "runtime": ['libpq5']
+            },
+            "build": {
+              "name": 'myapp',
+              "template": 'rails',
+              "install_prefix", '/var/www/myapp',
+              "commands" {
+                "after.build": [
+                  "rake middleman"
                 ]
-              end
-            end
-          end
+              }
+            }
+          }
       - width: "7"
         heading: "Write configuration, not installation scripts."
         desc:
@@ -158,19 +157,18 @@
           - "Do you need to build a custom runit package that your Rails
             application depends on? We got that."
           - "Takeout has several pre-existing definitions to simplify packaging
-            for common application types. Currently supported templates: :rails
-            for Rails applications, :erlang for Erlang applications, and a
-            :generic default template for everything else. Need something
+            for common application types such as Ruby on Rails. Need something
             specific? <a href=mailto:helpdesk@packager.co>Let us know</a>!"
 
 - id: "pricing"
   class: "theme-bg-alt text-center"
   content:
     - heading: "Join the technical preview <underline>today</underline>."
-      subheading: "Try Takeout for free during the technical preview. Pricing
-        will be per-repository."
+      subheading: "Sign-up in 60-seconds. Try Takeout for free for 30-days."
     - layout: "button"
       class: "button-large"
       button:
         text: "Get Started!"
         url: "https://www.packager.co/login"
+    - desc:
+        - "<small>(after the technical preview, pricing will be per-repository)</small>"
