@@ -1,0 +1,34 @@
+%div.feature{ id: content.id }
+  = stylesheet_link_tag "feature"
+  - if content.has_key?("icon") || content.has_key?("heading") || content.has_key?("subheading")
+    %div.feature-header
+      = partial "layouts/heading", locals: { content: content }
+  %div.feature-body
+    - if content.has_key?("items")
+      - content.items.each do |item|
+        - if item.kind_of?(Hash)
+          = partial "layouts/display", locals: { content: item }
+
+        - elsif item.kind_of?(Array)
+          - columns = content.columns || 1
+          - width = 12 / columns
+          - bullets = content.bullets || "octicon octicon-check"
+          - rows = item.count / columns
+          - if item.count % columns > 0
+            - rows += 1
+          - index = 0
+          %div.row.checklist
+            - columns.times do
+              %div{ class: "col-md-#{width}" }
+                %ul.list-unstyled
+                  - item[index,rows].each do |content|
+                    %li
+                      %span.icon{ class: "#{bullets}" }
+                      %span= content
+                  - index += rows
+
+        - else
+          = partial "layouts/elements/p", locals: { content: item }
+
+    - elsif content.kind_of?(String)
+      = partial "layouts/elements/p", locals: { content: content }

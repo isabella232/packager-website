@@ -3,7 +3,7 @@
     - if content.has_key?("data")
       = partial "layouts/data", locals: { content: content.data }
     - else
-      = partial "layouts/#{content.layout || "feature"}", locals: { content: content }
+      = partial "layouts/#{content.layout || "default"}", locals: { content: content }
 
 - elsif content.kind_of?(Array)
   %div.row
@@ -14,4 +14,7 @@
           - item["class"] = "#{item["class"]} col-sm-#{item.width || @width}"
         - else
           - item["class"] = "col-sm-#{item.width || @width}"
-      = partial "layouts/loader", locals: { content: item }
+      = partial "layouts/display", locals: { content: item }
+
+- else
+  = partial "layouts/default", locals: { content: content }

@@ -6,7 +6,7 @@
       - width: "7"
         heading: "Make installable system packages, not
           <text-muted>.</text-muted>war <text-muted>(files)</text-muted>"
-        desc:
+        items:
           - subheading: "Stop writing installation scripts."
 
           - "If you're implementing solutions for installing software because
@@ -46,26 +46,26 @@
       - class: "text-center"
         icon:
           class: "mega-octicon octicon-tag large-icon"
-        desc:
+        items:
           - heading: "Tag."
-            desc:
+            items:
               - "Takeout will create a new job everytime you create a tag in
                 your source code repository."
       - class: "text-center"
         icon:
           class: "mega-octicon octicon-package large-icon"
-        desc:
+        items:
           - heading: "Package."
-            desc:
+            items:
               - "Takeout will build your application, create installable system
                 packages (.deb or .rpm files), and make them available to
                 install via package management."
       - class: "text-center"
         icon:
           class: "mega-octicon octicon-cloud-download large-icon"
-        desc:
+        items:
           - heading: "Install."
-            desc:
+            items:
               - "Install <em>your</em> applications with an <code>apt-get
                 install</code> or <code>yum install</code>."
 
@@ -82,7 +82,7 @@
         lang: "shell"
         heading: "Your packages."
         subheading: "Release your software in a ready-to-install format."
-        desc:
+        items:
           - "Takeout delivers lightweight system packages directly to <a
             href=https://github.com/blog/1547-release-your-software>Github
             releases</a>. Optionally, packages may also be uploaded to public or
@@ -103,7 +103,7 @@
       - width: "7"
         heading: "Your existing workflow."
         subheading: "Takeout promotes best practices."
-        desc:
+        items:
           - "Takeout promotes a healthy software development life cycle (SDLC)
             by creating installable packages for every tag in your source code
             repository. Creating a package is as simple as pushing a tag. Have
@@ -124,30 +124,34 @@
         width: "5"
         lang: "json"
         snippet: |
-
-          {
-            "target": {
-              "platform": 'ubuntu',
-              "version": '14.04'
-            },
-            "dependencies": {
-              "build": ['libpq-dev'],
-              "runtime": ['libpq5']
-            },
-            "build": {
-              "name": 'myapp',
-              "template": 'rails',
-              "install_prefix", '/var/www/myapp',
-              "commands" {
-                "after.build": [
-                  "rake middleman"
+          # -*- mode: ruby -*-
+          # -*- encoding: utf-8 -*-
+          Packager.build do
+            target do
+              platform 'ubuntu'
+              version '12.04'
+            end
+            dependencies do
+              build ['libpq-dev']
+              runtime ['libpq5']
+            end
+            configure do
+              environment 'production'
+            end
+            build do
+              name 'myapp'
+              template :rails
+              install_prefix '/var/www/myapp'
+              commands do
+                after.build [
+                  'rake middleman'
                 ]
-              }
-            }
-          }
+              end
+            end
+          end
       - width: "7"
         heading: "Write configuration, not installation scripts."
-        desc:
+        items:
           - "Takeout is a single purpose CI service that responds to GitHub
             webhooks. The <code>.takeout</code> configuration file can be
             written in a simple DSL or JSON and lives in source control
@@ -170,5 +174,5 @@
       button:
         text: "Get Started!"
         url: "https://www.packager.co/login"
-    - desc:
+    - items:
         - "<small>(after the technical preview, pricing will be per-repository)</small>"

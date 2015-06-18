@@ -6,4 +6,4 @@
     - if section.has_key?("data")
       = partial "layouts/data", locals: { content: section.data }
     - section.content.each do |content|
-      = partial "layouts/loader", locals: { content: content }
+      = partial "layouts/display", locals: { content: content }
