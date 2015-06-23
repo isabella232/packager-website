@@ -1,6 +1,6 @@
 ---
-title: "Takeout"
-description: "Takeout is a single-purpose continuous integration (CI) service
+title: "Packager"
+description: "Packager is a single-purpose continuous integration (CI) service
   designed to build & package (.deb, .rpm, etc) <strong>your</strong>
   applications. Stop writing installation scripts & start releasing your
   software in ready-to-install formats."
@@ -18,7 +18,7 @@ favicon:
 
 opengraph:
   type: "website"
-  site_name: "Takeout"
+  site_name: "Packager"
   title: "Taking the pain out of package management, one package at a time."
   url: "http://automacon.io"
 
@@ -55,5 +55,5 @@ nav:
       url: "#"
       options:
         - name: "Dashboard"
-          url: "https://www.packager.co/pipeline/packager/dashboard"
+          url: "https://www.packager.co/login"
           external: "true"

@@ -42,3 +42,11 @@ $theme-light:     #5CCCCC;
 .theme-bg-alt a {
   color: white;
 };
+
+.row {
+  margin-bottom: 50px;
+};
+
+.row:last-child {
+  margin-bottom: 0px;
+}
